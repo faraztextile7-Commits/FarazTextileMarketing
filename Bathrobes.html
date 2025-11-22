@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Image/Cotton.png" type="image/x-icon">
+    <title>Faraz Textile Marketing</title>
+    <style>
+        body{
+            background-color:rgb(190, 180, 180);
+            padding: 0;
+            margin: 0;
+        }
+
+        /* ============ NAVBAR ============ */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo container */
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Logo circle */
+        nav .logo-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #003366, #005580);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent;
+            /* default no border */
+            transition: border 0.3s ease;
+        }
+
+        /* Hover effect on circle */
+        nav .logo-circle:hover {
+            border: 2px solid black;
+        }
+
+        /* Logo text inside circle */
+        nav .logo-circle a {
+            color: #fff;
+            /* white text */
+            text-decoration: none;
+            /* remove underline */
+            font-weight: 700;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav ul li {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        nav ul li:hover {
+            color: #003366;
+            transform: translateY(-2px);
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #003366;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            background: #003366;
+            color: #fff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: #005580;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        /* ===== DROPDOWN ===== */
+        .dropdown:hover .dropdown-menu {
+            display: block;
+            
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            background: #fff;
+            border-radius: 6px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+            min-width: 160px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-menu.blue {
+            background: #003366;
+        }
+
+        .dropdown-menu.blue li a {
+            color: #fff;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 15px;
+            color: #000;
+            text-decoration: none;
+            font-size: large;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .dropdown-menu li:hover {
+            background: #005580;
+            /* margin-right: 100px; */
+            /* Slightly different blue for individual hover */
+        }
+
+        .dropdown-menu li:hover a {
+            color: #fff;
+            font-weight: bold;
+            
+        }
+        /* Crousal ki css */
+         /* Carousel Buttons */
+    .carousel-controls {
+        position: fixed;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+    }
+
+    .carousel-btn {
+        padding: 12px 16px;
+        background: #003366;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+
+    .carousel-btn:hover {
+        background: #005580;
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    /* Container styling to center content */
+    .container {
+        background: transparent; /* maintain original section style */
+        padding-bottom: 50px;
+    }
+
+        
+        /* yarn ki css */
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 50px auto;
+    }
+    .section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 80px 0;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 1s ease;
+    }
+    .section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .section:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    .section img {
+        width: 25%;   /*Image ka sizE chota bada*/
+        border-radius: 10px;
+        transition: transform 0.5s, box-shadow 0.5s;
+        cursor: pointer;
+    
+    }
+    .section img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .description {
+        width: 45%;
+        padding: 20px;
+    }
+    .description h2 {
+        margin-bottom: 15px;
+        font-size: 28px;
+        color: #000000;
+    }
+    /* paragraph mai chaiz khani */
+    .description p {
+        color:#272c38;
+        font-size: 18px;
+        line-height: 1.6;
+        /* font-weight: bold; */
+    }
+
+ 
+    /* Footer */
+     footer {
+            margin-top: 70px;
+            border-top: 1px solid #ddd;
+            padding: 50px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            background: rgb(58, 56, 56);
+        }
+        footer p {
+            color: #555;
+            font-size: 14px;
+        }
+        footer ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+        footer ul li {
+            color: white;
+            margin: 6px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            
+        }
+        
+        footer ul li:hover {
+            color: #0b5eb1;
+        }
+        .legit{
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            
+        }
+        #fegit{
+            color: white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+
+        /* Ya Sara Fooetr ko Vertically Align karnay ka kam hai  */
+        .quick-links {
+    display: flex;
+    flex-direction: column; /* vertical stack */
+    align-items: flex-start; /* left align all items */
+    gap: 10px; /* space between heading & list, and list items */
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* vertical list */
+    gap: 8px; /* space between list items */
+}
+
+/* Quick Links Styling */
+.quick-links ul li a {
+    text-decoration: none; /* underline remove karne ke liye */
+    color: #fff;           /* default text color white */
+    transition: color 0.3s ease;
+}
+
+.quick-links ul li a:hover {
+    color: #0b5eb1;       /* hover color blue */
+}
+
+
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            nav ul {
+                display: none; /* Simple hide for mobile; can add hamburger later */
+            }
+            .cta {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ============ ANIMATIONS ============ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================================= */
+/*                     HIGHLY RESPONSIVE MEDIA QUERIES          */
+/* ============================================================= */
+
+/* ---------- Large Screens (max-width: 1200px) ---------- */
+@media (max-width: 1200px) {
+    nav ul {
+        gap: 20px;
+    }
+    .section img {
+        width: 30%;
+    }
+    .description {
+        width: 55%;
+    }
+}
+
+/* ---------- Tablets (max-width: 992px) ---------- */
+@media (max-width: 992px) {
+    nav {
+        padding: 15px 4%;
+    }
+    nav ul {
+        gap: 15px;
+    }
+    .section {
+        margin: 60px 0;
+    }
+    .section img {
+        width: 35%;
+    }
+    .description h2 {
+        font-size: 24px;
+    }
+}
+
+/* ---------- Tablets & Large Phones (max-width: 768px) ---------- */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* hide menu on small screens */
+    }
+    .nav-btn {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .section {
+        flex-direction: column !important;
+        text-align: center;
+    }
+    .section img {
+        width: 55%;
+        margin-bottom: 20px;
+    }
+    .description {
+        width: 90%;
+    }
+    .description h2 {
+        font-size: 22px;
+    }
+    .description p {
+        font-size: 16px;
+    }
+
+    .carousel-controls {
+        right: 10px;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 40px 10%;
+    }
+    .quick-links {
+        align-items: center;
+    }
+    .quick-links ul {
+        align-items: center;
+    }
+}
+
+/* ---------- Regular Phones (max-width: 576px) ---------- */
+@media (max-width: 576px) {
+    nav {
+        padding: 12px 4%;
+    }
+    .logo-circle {
+        width: 42px;
+        height: 42px;
+    }
+    nav .logo strong {
+        font-size: 18px;
+    }
+
+    .section img {
+        width: 70%;
+    }
+    .description h2 {
+        font-size: 20px;
+    }
+    .description p {
+        font-size: 15px;
+    }
+
+    .carousel-btn {
+        padding: 10px 13px;
+        font-size: 16px;
+    }
+
+    footer {
+        padding: 35px 8%;
+    }
+}
+
+/* ---------- Small Phones (max-width: 450px) ---------- */
+@media (max-width: 450px) {
+    .logo-circle {
+        width: 38px;
+        height: 38px;
+    }
+    nav .logo strong {
+        font-size: 16px;
+    }
+
+    .section img {
+        width: 80%;
+    }
+    .description {
+        width: 95%;
+    }
+    .description h2 {
+        font-size: 18px;
+    }
+    .description p {
+        font-size: 14px;
+    }
+
+    .nav-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+
+    .carousel-btn {
+        padding: 8px 10px;
+    }
+}
+
+/* ---------- Extra Small Phones (max-width: 360px) ---------- */
+@media (max-width: 360px) {
+    .logo-circle {
+        width: 34px;
+        height: 34px;
+    }
+
+    .section img {
+        width: 90%;
+    }
+
+    .description h2 {
+        font-size: 17px;
+    }
+    .description p {
+        font-size: 13px;
+    }
+
+    .nav-btn {
+        font-size: 12px;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            <div class="logo-circle"><a href="index.html">FTM</a></div>
+            <div>
+                <strong
+                    style="font-size: x-large;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Faraz
+                    Textile Marketing</strong><br>
+                <small style="color:#666;">Premium Textiles & Yarns</small>
+            </div>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About Us.html">About Us</a></li>
+
+            <li class="dropdown">
+                <a href="#">Products ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Yarn.html">Yarn</a></li>
+                    <li><a href="Fiber.html">Fiber</a></li>
+                    <li><a href="Fabric.html">Fabric</a></li>
+                    <li><a href="Towels.html">Towels</a></li>
+                    <li><a href="Bathrobes.html">Bathrobes</a></li>
+                    <li><a href="Bed linen.html">Bed linen</a></li>
+                    <li><a href="Knitted Garments.html">Knitted Garments</a></li>
+                    <li><a href="Woven Garments.html">Woven Garments</a></li>
+
+                </ul>
+            </li>
+
+            <li><a href="Conatct.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-btn"><a href="Get Quote.html" style="color: white; text-decoration: none;">Get Quote</a></div>
+    </nav>
+
+    <!-- crousal ka kam -->
+     <!-- Add this inside body, preferably above the container -->
+<div class="carousel-controls">
+    <button class="carousel-btn" data-dir="up">▲</button>
+    <button class="carousel-btn" data-dir="down">▼</button>
+</div>
+
+ 
+
+<div class="container">
+    <!-- Section 1 -->
+    <div class="section" id="section1">
+        <img src="./Image/Terry Cotton Bathrobe.jpg" alt="Yarn 1" style="filter: brightness(1.35s);">
+        <div class="description">
+            <h2>1- Terry Cotton Bathrobe</h2>
+            <p>A terry cotton bathrobe is a soft, absorbent, and cozy textile garment designed to keep the body warm and dry after bathing. Its looped cotton fibers provide maximum comfort, durability, and a plush feel for everyday relaxation.</p>
+            <h2>Key Features:</h2>
+            <p><ul>
+                <li>Soft and comfortable.</li>
+                <li>Highly absorbent.</li>
+                <li>Warm and cozy.</li>
+                <li>Durable and long-lasting.</li>
+                <li>Easy to wash and maintain</li>
+            </ul></p>
+            <h2>Uses:</h2>
+            <p>Home lounging, post-bath wear, spa use, and relaxation.</p>
+        </div>
+    </div>
+    <!-- Section 2 -->
+    <div class="section" id="section2">
+        <img src="./Image/Waffle Bathrobe.jpg" alt="Yarn 2">
+        <div class="description">
+            <h2>2- Waffle Bathrobe</h2>
+            <p> A waffle bathrobe is a lightweight, breathable, and textured textile garment designed for comfort and quick drying. Its unique waffle-weave fabric provides softness, absorbency, and a stylish, airy feel, making it ideal for home and spa use.</p>
+            <h2>Key Features:</h2>
+            <p><ul>
+                <li>Lightweight and breathable.</li>
+                <li>Soft and comfortable.</li>
+                <li>Quick-drying.</li>
+                <li>Durable and long-lasting.</li>
+                <li>Stylish textured weave.</li>
+            </ul></p>
+            <h2>Uses:</h2>
+            <p>Home lounging, spa, post-bath wear, swimming pool, and hotel use.</p>
+        </div>
+        </div>
+    </div>
+    <!-- Section 3 -->
+    <div class="section" id="section3">
+        <img src="./Image/Velour Bathrobe.jpg" alt="Yarn 3">
+        <div class="description">
+           <h2>3- Velour Bathrobe</h2>
+            <p>A velour bathrobe is a plush, soft, and luxurious textile garment designed for warmth and comfort. Its smooth, velvet-like cotton or cotton-blend fibers offer a cozy feel, elegance, and durability for everyday relaxation and home use.</p>
+            <h2>Key Features:</h2>
+            <p><ul>
+                <li>Soft and plush.</li>
+                <li>Warm and cozy.</li>
+                <li>Durable and long-lasting.</li>
+                <li>Smooth, velvet-like texture.</li>
+                <li>Luxurious feel</li>
+            </ul>
+            <h2>Uses:</h2>
+            <p>Home lounging, post-bath wear, spa, hotel, and relaxation.</p>
+        </div>
+    </div>
+    <!-- Section 4 -->
+    <div class="section" id="section4">
+        <img src="./Image/Microfiber Bathrobe.jpg" alt="Yarn 4">
+        <div class="description">
+            <h2>4- Microfiber Bathrobe</h2>
+            <p>A microfiber bathrobe is a lightweight, soft, and quick-drying textile garment designed for comfort and convenience. Its fine synthetic fibers offer smoothness, durability, and excellent moisture absorption, making it ideal for home, travel, and spa use.</p>
+        <h2>Key Features:</h2>
+        <p><ul><li>Lightweight and soft.</li>
+        <li>Quick-drying.</li>
+        <li>Highly absorbent.</li>
+        <li>Durable and long-lasting.</li>
+        <li>Smooth and comfortable.</li></ul></p>
+        <h2>Uses:</h2>
+        <p>Home lounging, post-bath wear, spa, swimming pool, and travel.</p>
+        </div>
+
+    </div>
+   
+<!-- Footer -->
+
+<footer>
+        <div>
+            <strong class="legit">Faraz Textile Marketing</strong>
+            <p id="fegit">Leading the way in textile excellence.</p>
+        </div>
+        <div>
+            <div class="quick-links">
+    <strong class="legit">Quick Links</strong>
+    <ul>
+         <li><a href="Yarn.html">Yarn</a></li>
+         <li><a href="Fiber.html">Fiber</a></li>
+                    <li><a href="Fabric.html">Fabric</a></li>
+                    <li><a href="Towels.html">Towels</a></li>
+                    <li><a href="Bathrobes.html">Bathrobes</a></li>
+                    <li><a href="Bed linen.html">Bed linen</a></li>
+                    <li><a href="Knitted Garments.html">Knitted Garments</a></li>
+                    <li><a href="Woven Garments.html">Woven Garments</a></li>
+
+    </ul>
+</div>
+
+        </div>
+        <div>
+            <strong class="legit">Contact</strong>
+            <p id="fegit">Email: faraztextile12@gmail.com</p>
+            <p id="fegit">Phone:  0092-312-1074149</p>
+        </div>
+    </footer>
+
+
+
+<script>// Scroll animation for sections
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 100){
+            section.classList.add('visible');
+        }
+    });
+});
+
+// Vertical Carousel Controls
+const buttons = document.querySelectorAll('.carousel-btn'); // buttons with data-dir="up" or "down"
+buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const dir = btn.getAttribute('data-dir');
+        const scrollDistance = window.innerHeight * 0.7; // scroll 70% of screen height
+        if(dir === 'down'){
+            window.scrollBy({top: scrollDistance, left: 0, behavior: 'smooth'});
+        } else {
+            window.scrollBy({top: -scrollDistance, left: 0, behavior: 'smooth'});
+        }
+    });
+});
+</script>
+</body>
+
+</html>

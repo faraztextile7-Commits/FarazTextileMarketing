@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Image/Cotton.png" type="image/x-icon">
+    <title>Faraz Textile Marketing</title>
+    <style>
+         /* ============ RESET ============ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #f5f5f5;
+            color: #222;
+            line-height: 1.6;
+        }
+
+           /* ============ NAVBAR ============ */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+      /* Logo container */
+nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Logo circle */
+nav .logo-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #003366, #005580);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent; /* default no border */
+    transition: border 0.3s ease;
+}
+
+/* Hover effect on circle */
+nav .logo-circle:hover {
+    border: 2px solid black;
+}
+
+/* Logo text inside circle */
+nav .logo-circle a {
+    color: #fff; /* white text */
+    text-decoration: none; /* remove underline */
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect: black border appears */
+nav .logo-circle:hover {
+    border: 2px solid black;
+}
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        nav ul li {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: larger;
+            font-weight: bold;
+        }
+        nav ul li:hover {
+            color: #003366;
+            transform: translateY(-2px);
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            transition: color 0.3s ease;
+
+        }
+        nav ul li a:hover {
+            color: #003366;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: #003366;
+            color: #fff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .nav-btn:hover {
+            background: #005580;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        /* Yaha say Drop down ka Kam hai  */
+
+  /* ===== DROPDOWN ===== */
+        .dropdown:hover .dropdown-menu { display:block; }
+        .dropdown-menu { display:none; position:absolute; top:35px; left:0; background:#fff; border-radius:6px; box-shadow:0px 6px 20px rgba(0,0,0,0.15); min-width:160px; }
+        .dropdown-menu li a { display:block; padding:10px 15px; color:#000; text-decoration:none; font-size: large;font-weight: 600; }
+        .dropdown-menu li:hover { background:#003366; }
+        .dropdown-menu li:hover a { color:#fff; font-weight:bold; }
+
+        /* Yaha say Services ka kam hai */
+        :root{
+--primary:#0b3d91;
+--accent:#174ea6;
+--muted:#6b7280;
+--card-bg:#ffffff;
+--bg:#f5f7fa;
+}
+*{box-sizing:border-box;margin:0;padding:0;font-family:"Inter", "Segoe UI", Arial, sans-serif}
+body{background:var(--bg);color:#111;line-height:1.65}
+.wrap{max-width:1200px;margin:48px auto;padding:28px}
+
+
+header{display:flex;align-items:center;gap:18px;margin-bottom:26px}
+header .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;box-shadow:0 8px 24px rgba(11,61,145,0.18)}
+header h1{font-size:1.6rem;color:var(--primary)}
+p.lead{color:var(--muted);margin:14px 0 26px}
+
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.card{background:var(--card-bg);padding:22px;border-radius:14px;border:1px solid #e6e9f0;box-shadow:0 6px 20px rgba(16,24,40,0.06);transition:all .32s cubic-bezier(.2,.9,.3,1)}
+.card:hover{transform:translateY(-10px);box-shadow:0 18px 40px rgba(11,61,145,0.12);border-color:var(--primary)}
+.card h3{color:var(--primary);margin-bottom:12px}
+ul{margin-left:18px}
+li{margin-bottom:10px;color:#222}
+
+
+.banner{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;padding:28px;border-radius:16px;margin-top:32px;box-shadow:0 12px 40px rgba(11,61,145,0.12);transition:all .3s ease;opacity:0;transform:translateY(20px)}
+.banner.show{opacity:1;transform:translateY(0)}
+.banner h2{margin-bottom:10px}
+
+
+footer{margin-top:40px;padding-top:18px;border-top:1px dashed #e8eaf3;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+
+@media (max-width:640px){header{gap:12px}.banner{padding:18px}}
+
+/* Footer ka kam  */
+
+ footer {
+            margin-top: 70px;
+            border-top: 1px solid #ddd;
+            padding: 50px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            background: rgb(58, 56, 56);
+        }
+        footer p {
+            color: #555;
+            font-size: 14px;
+        }
+        footer ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+        footer ul li {
+            color: white;
+            margin: 6px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            
+        }
+        
+        footer ul li:hover {
+            color: #0b5eb1;
+        }
+        .legit{
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            
+        }
+        #fegit{
+            color: white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+
+        /* Ya Sara Fooetr ko Vertically Align karnay ka kam hai  */
+        .quick-links {
+    display: flex;
+    flex-direction: column; /* vertical stack */
+    align-items: flex-start; /* left align all items */
+    gap: 10px; /* space between heading & list, and list items */
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* vertical list */
+    gap: 8px; /* space between list items */
+}
+
+/* Quick Links Styling */
+.quick-links ul li a {
+    text-decoration: none; /* underline remove karne ke liye */
+    color: #fff;           /* default text color white */
+    transition: color 0.3s ease;
+}
+
+.quick-links ul li a:hover {
+    color: #0b5eb1;       /* hover color blue */
+}
+
+
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            nav ul {
+                display: none; /* Simple hide for mobile; can add hamburger later */
+            }
+            .cta {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ============ ANIMATIONS ============ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ====================================================================== */
+/* =======================   HIGHLY RESPONSIVE UI   ====================== */
+/* ====================================================================== */
+
+/* ----------- Large Tablets (max-width: 1200px) ----------- */
+@media (max-width: 1200px) {
+  .wrap {
+    padding: 20px;
+  }
+
+  nav {
+    padding: 18px 4%;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+/* ----------- Tablets (max-width: 992px) ----------- */
+@media (max-width: 992px) {
+  nav ul {
+    gap: 18px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .card h3 {
+    font-size: 1.05rem;
+  }
+
+  footer {
+    padding: 40px 4%;
+  }
+}
+
+/* ----------- Medium Tablets / Small Laptops (max-width: 850px) ----------- */
+@media (max-width: 850px) {
+  nav ul {
+    display: none; /* hide menu for mobile */
+  }
+
+  .nav-btn {
+    padding: 10px 20px;
+  }
+
+  .logo-circle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .wrap {
+    padding: 18px;
+  }
+}
+
+/* ----------- Large Phones / Small Tablets (max-width: 768px) ----------- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  header .logo {
+    margin-bottom: 10px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  footer {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .quick-links {
+    align-items: center;
+  }
+
+  .quick-links ul {
+    align-items: center;
+  }
+
+  .banner {
+    text-align: center;
+  }
+}
+
+/* ----------- Regular Phones (max-width: 576px) ----------- */
+@media (max-width: 576px) {
+  nav {
+    padding: 16px 5%;
+  }
+
+  .logo-circle {
+    width: 38px;
+    height: 38px;
+  }
+
+  .logo strong {
+    font-size: 1.1rem !important;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .banner {
+    padding: 20px;
+  }
+
+  footer .legit {
+    font-size: 1.1rem;
+  }
+}
+
+/* ----------- Small Phones (max-width: 450px) ----------- */
+@media (max-width: 450px) {
+  body {
+    padding: 0;
+  }
+
+  nav {
+    padding: 14px 4%;
+  }
+
+  .logo-circle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .wrap {
+    padding: 14px;
+  }
+
+  header h1 {
+    font-size: 1.15rem;
+  }
+
+  .card {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .banner {
+    padding: 16px;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    padding: 30px 4%;
+  }
+
+  footer ul li {
+    font-size: 0.9rem;
+  }
+}
+
+/* ----------- Ultra Small Phones (max-width: 360px) ----------- */
+@media (max-width: 360px) {
+  nav {
+    padding: 12px 3%;
+  }
+
+  .logo-circle {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  header h1 {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 12px;
+  }
+
+  .card h3 {
+    font-size: 0.95rem;
+  }
+
+  .banner {
+    padding: 14px;
+    font-size: 0.85rem;
+  }
+
+  footer ul li {
+    font-size: 0.85rem;
+  }
+}
+
+
+
+        
+
+    </style>
+</head>
+<body>
+    
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            <div class="logo-circle"><a href="index.html">FTM</a></div>
+            <div>
+                <strong style="font-size: x-large;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Faraz Textile Marketing</strong><br>
+                <small style="color:#666;">Premium Textiles & Yarns</small>
+            </div>
+        </div>
+       <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About Us.html">About Us</a></li>
+
+    <li class="dropdown">
+                <a href="Products.html">Products ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Yarn.html">Yarn</a></li>
+                    <li><a href="Fiber.html">Fiber</a></li>
+                    <li><a href="Fabric.html">Fabric</a></li>
+                    <li><a href="Towels.html">Towels</a></li>
+                    <li><a href="Bathrobes.html">Bathrobes</a></li>
+                    <li><a href="Bed linen.html">Bed linen</a></li>
+                    <li><a href="Knitted Garments.html">Knitted Garments</a></li>
+                    <li><a href="Woven Garments.html">Woven Garments</a></li>
+
+                </ul>
+            </li>
+
+    <li><a href="Conatct.html">Contact</a></li>
+</ul>
+
+        <div class="nav-btn"><a href="Get Quote.html" style="color: white; text-decoration: none;">Get Quote</a></div>
+    </nav>
+
+    <!-- Ya Services Ka kam hai -->
+ <main class="wrap">
+
+    <header>
+      <div class="logo">FTM</div>
+      <div>
+        <h1>Faraz Textile Markiting Sourcing Services</h1>
+        <p class="lead">End-to-end sourcing, inspection and compliance for international buyers — from fabric verification to final shipment acceptance.</p>
+      </div>
+    </header>
+
+    <section>
+      <h2 style="color:var(--primary);margin-bottom:12px">Quality Assurance Procedures</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Pre-Production Management</h3>
+          <ul>
+            <li>Conduct pre-production meetings with vendors to align specs, timelines and responsibilities.</li>
+            <li>Finalize fabric & trim requirements, approved vendors and sampling schedule.</li>
+            <li>Review production planning, line allocation and capacity to avoid delays.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Fabric & Material Control</h3>
+          <ul>
+            <li>Track fabric status from order to delivery and verify quantities against POs.</li>
+            <li>Perform incoming fabric inspection and acceptance sampling.</li>
+            <li>Coordinate lab testing for fiber content, colorfastness, dimensional stability and performance.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Ongoing Production Oversight</h3>
+          <ul>
+            <li>Monitor production progress and critical control points.</li>
+            <li>Carry out inline audits and corrective action follow-ups.</li>
+            <li>Prepare and submit production reports and documentation to buyers.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section style="margin-top:28px">
+      <h2 style="color:var(--primary);margin-bottom:12px">Quality Audit — Pre‑Production Stage</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Fabric Inspection Procedure</h3>
+          <ul>
+            <li>Visual inspection for defects, slubs, holes and weaving/knitting faults.</li>
+            <li>Shade banding and cross-dye checks to ensure color uniformity.</li>
+            <li>Check roll measurements, lot numbers and delivery documentation.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Fabric Performance Testing</h3>
+          <ul>
+            <li>Arrange laboratory testing: colorfastness, pilling, shrinkage, tensile strength, and GSM.</li>
+            <li>Provide test reports and a pass/fail recommendation based on buyer tolerance.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Inspection Preparation & Meetings</h3>
+          <ul>
+            <li>Prepare inspection plan, checklists and sampling protocol prior to production start.</li>
+            <li>Conduct pre-production meetings to confirm technical packs, measurement charts and QC acceptance criteria.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section style="margin-top:28px">
+      <h2 style="color:var(--primary);margin-bottom:12px">Final Inspection</h2>
+      <p style="color:var(--muted);margin-bottom:12px">Our Final Inspection team is staffed by qualified QA professionals who verify each lot against international standards and buyer specifications. Inspections are carried out in-house or via accredited labs depending on the testing required.</p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>What We Inspect</h3>
+          <ul>
+            <li>Visual inspections for workmanship, stitching and finishing details.</li>
+            <li>Quantity, packing, labeling and carton marking verification.</li>
+            <li>Material evaluation: touch, hand-feel and odor checks.</li>
+            <li>Color & shade consistency across batches.</li>
+            <li>Measurement checks against size charts and tolerance levels.</li>
+            <li>Weight / GSM verification and fabric consumption checks.</li>
+            <li>Any additional buyer-specific tests or acceptance criteria.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Inspection Deliverables</h3>
+          <ul>
+            <li>Detailed inspection report with photos and defect classification.</li>
+            <li>Pass/fail recommendation and suggested corrective actions.</li>
+            <li>Packing list verification and shipment readiness confirmation.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section style="margin-top:28px">
+      <h2 style="color:var(--primary);margin-bottom:12px">Factory Evaluation & Compliance Audit</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Factory Capability</h3>
+          <ul>
+            <li>Good factory setup and organized workflow.</li>
+            <li>Condition and suitability of machines and equipment.</li>
+            <li>Technical competency and demonstrated quality conformance.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Compliance & Labour Standards</h3>
+          <ul>
+            <li>Safe and healthy workplace environment.</li>
+            <li>No child labour or forced/involuntary labour practices.</li>
+            <li>Fair disciplinary practices and non-discrimination policies.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Working Conditions & Wages</h3>
+          <ul>
+            <li>Working hours and overtime checks against local law and buyer policy.</li>
+            <li>Fair wages, payroll records and statutory benefits verification.</li>
+            <li>Grievance mechanisms and worker welfare initiatives.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section style="margin-top:28px">
+      <div class="banner" id="banner">
+        <h2>Sourcing — Strategic & Practical</h2>
+        <p style="opacity:.95">Proper sourcing is the key to successful imports from Pakistan. We match each purchase order to vendors who can deliver on quality, cost and timeline while meeting technical constraints.</p>
+      </div>
+
+      <div class="grid" style="margin-top:18px">
+        <article class="card">
+          <h3>How We Select Vendors</h3>
+          <ul>
+            <li>Assess financial strength and ability to fulfill orders at scale.</li>
+            <li>Verify technical abilities including machinery, processes and skilled personnel.</li>
+            <li>Evaluate factory layout, workflow efficiency and sample room capabilities.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Sourcing Prerequisites</h3>
+          <ul>
+            <li>Financial stability and timely payment history.</li>
+            <li>Technical competency for product-specific requirements.</li>
+            <li>Demonstrable productivity, lead-time reliability and capacity planning.</li>
+            <li>Established sample room and pro-active QA procedures.</li>
+            <li>Vendor reputation supported by long-term buyer relationships.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>When We Decline</h3>
+          <ul>
+            <li>We may refuse projects that fall outside local vendor capabilities or where compliance risks are high.</li>
+            <li>We prioritize long-term supplier stability over one-off low-margin orders that jeopardize quality.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+</main>
+
+
+<!-- About Us ka Kam -->
+ <main class="wrap">
+
+    <header>
+      <div class="logo">FTM</div>
+      <div>
+        <h1>Faraz Textile Marketing</h1>
+        <p class="lead">Diverse and comprehensive management experience in sourcing for reputable international companies, with expertise in textile sourcing, production management, and quality control.</p>
+      </div>
+    </header>
+
+    <section>
+      <div class="grid">
+        <article class="card">
+          <h3>Best Product Sourcing</h3>
+          <p>We provide our clients with the best sourcing of products. Our objective is to offer top-quality merchandise at competitive prices while assisting vendors in maintaining high standards.</p>
+        </article>
+
+        <article class="card">
+          <h3>Defect Management</h3>
+          <p>We help spot and reject defective items, pinpoint production operations that need special attention, and provide useful suggestions to minimize defects.</p>
+        </article>
+
+        <article class="card">
+          <h3>Professional Staff</h3>
+          <p>Our committed, skilled, and experienced professional, technical, and quality control staff ensures customer satisfaction, keeping buyers fully updated on their orders.</p>
+        </article>
+
+        <article class="card">
+          <h3>Supply Chain Management</h3>
+          <p>We act as a link between customers and suppliers, managing vendor sourcing, product development, quality assurance, and logistics to ensure smooth delivery of quality products.</p>
+        </article>
+
+        <article class="card">
+          <h3>Integrated Manufacturing</h3>
+          <p>We provide goods through vertically integrated knitwear manufacturing units with in-house knitting, dyeing, stitching, embroidery, and printing facilities under one roof.</p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+<!-- Footer KA kaM -->
+  <!-- FOOTER -->
+    <footer>
+        <div>
+            <strong class="legit">Faraz Textile Marketing</strong>
+            <p id="fegit">Leading the way in textile excellence.</p>
+        </div>
+        <div>
+            <div class="quick-links">
+    <strong class="legit">Quick Links</strong>
+    <ul>
+         <li><a href="Yarn.html">Yarn</a></li>
+         <li><a href="Fiber.html">Fiber</a></li>
+                    <li><a href="Fabric.html">Fabric</a></li>
+                    <li><a href="Towels.html">Towels</a></li>
+                    <li><a href="Bathrobes.html">Bathrobes</a></li>
+                    <li><a href="Bed linen.html">Bed linen</a></li>
+                    <li><a href="Knitted Garments.html">Knitted Garments</a></li>
+                    <li><a href="Woven Garments.html">Woven Garments</a></li>
+
+    </ul>
+</div>
+
+        </div>
+        <div>
+            <strong class="legit">Contact</strong>
+            <p id="fegit">Email: faraztextile12@gmail.com</p>
+            <p id="fegit">Phone:  0092-312-1074149</p>
+        </div>
+    </footer>
+    
+<script>
+    window.addEventListener('DOMContentLoaded',()=>{document.getElementById('banner').classList.add('show');});
+  </script>
+
+
+
+
+    
+</body>
+</html>

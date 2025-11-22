@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faraz Textile Marketing</title>
+   <link rel="shortcut icon" href="./Image/Cotton.png" type="image/x-icon">
+    <style>
+        /* ============ RESET ============ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: #f5f5f5;
+            color: #222;
+            line-height: 1.6;
+        }
+
+           /* ============ NAVBAR ============ */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 20px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+      /* Logo container */
+nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Logo circle */
+nav .logo-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #003366, #005580);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent; /* default no border */
+    transition: border 0.3s ease;
+}
+
+/* Hover effect on circle */
+nav .logo-circle:hover {
+    border: 2px solid black;
+}
+
+/* Logo text inside circle */
+nav .logo-circle a {
+    color: #fff; /* white text */
+    text-decoration: none; /* remove underline */
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect: black border appears */
+nav .logo-circle:hover {
+    border: 2px solid black;
+}
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        nav ul li {
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: larger;
+            font-weight: bold;
+        }
+        nav ul li:hover {
+            color: #003366;
+            transform: translateY(-2px);
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            transition: color 0.3s ease;
+
+        }
+        nav ul li a:hover {
+            color: #003366;
+        }
+        .nav-btn {
+            padding: 12px 25px;
+            background: #003366;
+            color: #fff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .nav-btn:hover {
+            background: #005580;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+        }
+
+        /* Yaha say Drop down ka Kam hai  */
+
+  /* ===== DROPDOWN ===== */
+        .dropdown:hover .dropdown-menu { display:block; }
+        .dropdown-menu { display:none; position:absolute; top:35px; left:0; background:#fff; border-radius:6px; box-shadow:0px 6px 20px rgba(0,0,0,0.15); min-width:160px; }
+        .dropdown-menu li a { display:block; padding:10px 15px; color:#000; text-decoration:none; font-size: large;font-weight: 600; }
+        .dropdown-menu li:hover { background:#003366; }
+        .dropdown-menu li:hover a { color:#fff; font-weight:bold; }
+
+
+
+
+        /* ============ HERO ============ */
+        
+        .hero {
+            padding: 10% 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 60px;
+            align-items: center;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #003366;
+            
+        }
+        .hero p {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #555;
+        }
+        .hero-btns {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            
+        }
+        .btn-primary {
+            padding: 14px 30px;
+            background: #003366;
+            color: #fff;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            
+        }
+        .btn-primary:hover {
+            background: #005580;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 51, 102, 0.3);
+            
+        }
+    
+
+        .hero-img {
+            width: 100%;
+            height: 400px;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .hero-img:hover img {
+            transform: scale(1.08);
+        }
+        .hero-img:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+         .upman {
+            animation: uperman 2s ease-out forwards;
+        }
+
+        .mahan {
+            animation: mahan 2s ease-out forwards;
+        }
+        .hania{
+            animation: han 2s ease-out forwards ;
+            margin-left: 200px
+        }
+        @keyframes uperman {
+            0%{
+                transform: translate(-100%);
+                opacity: 0;
+            }
+            100%{
+                transform: translate(0%);
+                opacity: 1;
+            }
+            
+        }
+        @keyframes mahan {
+            0%{
+                transform: translate(100%);
+                opacity: 0;
+            }
+            100%{
+                transform: translate(0%);
+                opacity: 1;
+            }
+            
+        }
+        @keyframes han {
+            0%{
+                transform:scale(0.30) ;
+               
+            }           
+          
+        }
+
+
+
+        /* ============ FEATURES ============ */
+        .section {
+            padding: 80px 5%;
+        }
+        .section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #003366;
+            text-align: center;
+        }
+        .section p {
+            margin-top: 10px;
+            color: #555;
+            text-align: center;
+            font-size: 18px;
+        }
+        .cards {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        .card h3 {
+            margin-top: 15px;
+            font-size: 22px;
+            color: #003366;
+        }
+        .card p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 15px;
+        }
+
+
+        /* Yaha say image ko formate ka kam shru */
+
+        /* ====== FEATURES: cards layout & style ====== */
+.section {
+  padding: 48px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.section p {
+  color: #555;
+  margin-bottom: 26px;
+}
+
+/* Cards grid */
+.cards {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+/* responsive breakpoints */
+@media (min-width: 640px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 980px) {
+  .cards { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Card base */
+.card {
+  background: linear-gradient(180deg, #aa9e9e, #a3989871);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(18,24,40,0.06);
+  overflow: hidden;
+  transition: transform 260ms ease, box-shadow 260ms ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Image container keeps aspect ratio */
+.card-media {
+  width: 100%;
+  height: 0;
+  padding-bottom: 62%; /* ~16:10 aspect ratio */
+  position: relative;
+  overflow: hidden;
+  background: #eee;
+}
+
+/* Card images - cover and centered */
+.card-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 400ms ease;
+  border: 2px solid black;
+  border-radius: 3px;
+}
+
+/* Card content */
+.card h3 {
+  font-size: 1.05rem;
+  margin: 16px;
+  margin-bottom: 6px;
+  color: #08112a;
+}
+.card p {
+  margin: 0 16px 18px 16px;
+  color: #3d3737;
+  line-height: 1.45;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Hover/Focus effects */
+.card:hover,
+.card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(18,24,40,0.12);
+  border: 2px solid black;
+  border-radius: 9px;
+}
+
+.card:focus-within .card-media img {
+  transform: scale(1.06);
+
+}
+
+/* Accessibility: keyboard focus outline */
+.card a, .card button {
+  outline: none;
+}
+.card:focus-within {
+  box-shadow: 0 0 0 4px rgba(38,132,255,0.12), 0 16px 36px rgba(18,24,40,0.12);
+}
+
+/* Small utility tweaks */
+@media (prefers-reduced-motion: reduce) {
+  .card, .card-media img { transition: none; transform: none; }
+}
+
+
+        
+
+        /*  STORIES/GALLERY ka kam  */
+        .stories {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+
+        .story {
+            position: relative;
+            height: 280px;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        .story img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .story:hover img {
+            transform: scale(1.1);
+        }
+        .story:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        .story-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: #fff;
+        }
+        .story-caption strong {
+            font-size: 18px;
+        }
+        .story-caption div {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* ============ TESTIMONIALS ============ */
+        .testimonials {
+            background: #fff;
+            padding: 80px 5%;
+        }
+        .testimonials h2 {
+            text-align: center;
+            color: #003366;
+        }
+        .testimonial-grid {
+            margin-top: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial {
+            background: #979292;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .testimonial p {
+            font-style: italic;
+            color: #000000;
+        }
+        .testimonial cite {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #003366;
+        }
+
+        /* ============ CTA ============ */
+        .cta {
+            background: linear-gradient(135deg, #003366, #005580);
+            color: #fff;
+            border-radius: 25px;
+            padding: 50px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 80px 5%;
+        }
+        .cta h2 {
+            font-size: 32px;
+            color: white;
+        }
+        .cta p {
+            margin-top: 10px;
+            opacity: 0.9;
+            color:#000000;
+        }
+        .cta button {
+            padding: 14px 30px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            
+        }
+        .cta button a{
+            text-decoration: none;
+            color: white;
+        }
+        
+      /* Ya button ka kam hai */
+        .cta .ghost-btn {
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+        .cta .ghost-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            margin-top: 70px;
+            border-top: 1px solid #ddd;
+            padding: 50px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            background: rgb(58, 56, 56);
+        }
+        footer p {
+            color: #555;
+            font-size: 14px;
+        }
+        footer ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+        footer ul li {
+            color: white;
+            margin: 6px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            
+        }
+        
+        footer ul li:hover {
+            color: #0b5eb1;
+        }
+        .legit{
+            color: black;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: larger;
+            
+        }
+        #fegit{
+            color: white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+
+        /* Ya Sara Fooetr ko Vertically Align karnay ka kam hai  */
+        .quick-links {
+    display: flex;
+    flex-direction: column; /* vertical stack */
+    align-items: flex-start; /* left align all items */
+    gap: 10px; /* space between heading & list, and list items */
+}
+
+.quick-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* vertical list */
+    gap: 8px; /* space between list items */
+}
+
+/* Quick Links Styling */
+.quick-links ul li a {
+    text-decoration: none; /* underline remove karne ke liye */
+    color: #fff;           /* default text color white */
+    transition: color 0.3s ease;
+}
+
+.quick-links ul li a:hover {
+    color: #0b5eb1;       /* hover color blue */
+}
+
+
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            nav ul {
+                display: none; /* Simple hide for mobile; can add hamburger later */
+            }
+            .cta {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* ============ ANIMATIONS ============ */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    /* =========================================================
+   =============  HIGHLY RESPONSIVE MEDIA QUERIES  =========
+   ========================================================= */
+
+/* ---------- Extra Large Devices (Desktops >1400px) ---------- */
+@media (min-width: 1400px) {
+    .hero {
+        padding: 8% 10%;
+    }
+    nav ul li {
+        font-size: 18px;
+    }
+}
+
+/* ---------- Large Devices (Laptops 1024px - 1399px) ---------- */
+@media (max-width: 1399px) {
+    .hero h1 {
+        font-size: 42px;
+    }
+    .hero-img {
+        height: 350px;
+    }
+}
+
+/* ---------- Tablets (768px - 1023px) ---------- */
+@media (max-width: 1023px) {
+    nav ul {
+        gap: 20px;
+    }
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 14% 5%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-img {
+        height: 320px;
+    }
+
+    .cta {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hania {
+        margin-left: 0 !important;
+    }
+
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+    }
+}
+
+/* ---------- Mobile Landscape (600px - 767px) ---------- */
+@media (max-width: 767px) {
+
+    /* Hide normal nav */
+    nav ul {
+        display: none;
+    }
+
+    .logo {
+        gap: 8px;
+    }
+
+    .hero {
+        padding: 18% 5%;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-img {
+        height: 280px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .stories {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .quick-links,
+    .quick-links ul {
+        align-items: center;
+    }
+
+    .cta button {
+        margin-left: 0 !important;
+    }
+}
+
+/* ---------- Small Mobiles (480px - 599px) ---------- */
+@media (max-width: 599px) {
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero-img {
+        height: 260px;
+    }
+
+    .card h3 {
+        font-size: 1rem;
+    }
+
+    .card p {
+        font-size: 0.88rem;
+    }
+
+    .testimonial {
+        padding: 22px;
+        font-size: 14px;
+    }
+
+    .cta h2 {
+        font-size: 26px;
+    }
+}
+
+/* ---------- Extra Small Phones (<480px) ---------- */
+@media (max-width: 480px) {
+
+    nav {
+        padding: 15px 4%;
+    }
+
+    .logo-circle {
+        width: 42px;
+        height: 42px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .hero-img {
+        height: 230px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 12px 22px;
+        font-size: 14px;
+    }
+
+    .cta {
+        padding: 35px 20px;
+    }
+
+    .cta h2 {
+        font-size: 22px;
+    }
+
+    footer p,
+    footer ul li {
+        font-size: 13px;
+    }
+}
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">
+            <div class="logo-circle"><a href="index.html">FTM</a></div>
+            <div>
+                <strong style="font-size: x-large;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Faraz Textile Marketing</strong><br>
+                <small style="color:#666;">Premium Textiles & Yarns</small>
+            </div>
+        </div>
+       <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About Us.html">About Us</a></li>
+
+    <li class="dropdown">
+                <a href="#">Products ▾</a>
+                <ul class="dropdown-menu">
+                    <li><a href="Yarn.html">Yarn</a></li>
+                    <li><a href="Fiber.html">Fiber</a></li>
+                    <li><a href="Fabric.html">Fabric</a></li>
+                    <li><a href="Towels.html">Towels</a></li>
+                    <li><a href="Bathrobes.html">Bathrobes</a></li>
+                    <li><a href="Bed linen.html">Bed linen</a></li>
+                    <li><a href="Knitted Garments.html">Knitted Garments</a></li>
+                    <li><a href="Woven Garments.html">Woven Garments</a></li>
+
+                </ul>
+            </li>
+
+    <li><a href="Conatct.html">Contact</a></li>
+</ul>
+
+        <div class="nav-btn"><a href="Get Quote.html" style="color: white; text-decoration: none;">Get Quote</a></div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero fade-in">
+        <div>
+            <h1 class="mahan">Premium Textiles.</h1>
+            <br>
+            <h2 class="hania" style="color:#555;">With</h2>
+            <br>
+            <h1 class="upman" style="color:black;">Global Quality.</h1>
+
+            <p>Delivering innovative, sustainable textiles for fashion, home, and industry with unmatched expertise.</p>
+            <div class="hero-btns">
+                <div class="btn-primary"><a href="Products.html" style="color: white; text-decoration: none;">Explore Products</a></div>
+
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="./Image/Cotton.png" alt="Textile Fabric">
+        </div>
+    </section>
+
+
+<!-- FEATURES -->
+<section class="section fade-in">
+  <h2>What We Offer</h2>
+  <p>Comprehensive solutions tailored to your textile needs.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-media">
+        <img src="./Image/High Quality Fabric.png" alt="High quality fabric sample" loading="lazy" width="800" height="600">
+      </div>
+      <h3>High-Quality Fabrics</h3>
+      <p>Durable, stylish fabrics sourced from premium materials for all applications.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <img src="./Image/Custon Yarns.png" alt="Custom yarn spools" loading="lazy" width="800" height="600">
+      </div>
+      <h3>Custom Yarns</h3>
+      <p>Specialized yarns designed for knitting, weaving, and industrial use.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <img src="./Image/Sustainable Practice.png" alt="Sustainable textile process" loading="lazy" width="800" height="600">
+      </div>
+      <h3>Sustainable Practices</h3>
+      <p>Eco-friendly processes ensuring minimal environmental impact.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-media">
+        <img src="./Image/Global Distribution.png" alt="Global shipping and logistics" loading="lazy" width="800" height="600">
+      </div>
+      <h3>Global Distribution</h3>
+      <p>Reliable supply chain and logistics for worldwide delivery.</p>
+    </div>
+  </div>
+</section>
+
+
+    <!-- STORIES/GALLERY -->
+    <section class="section fade-in">
+        <h2>Our Showcase</h2>
+        <p>Inspiring projects and textile innovations.</p>
+        <div class="stories">
+            <div class="story">
+                <img src="./Image/Cotton Collections.jpg" alt="Cotton Textile">
+                <div class="story-caption">
+                    <strong>Cotton Collections</strong>
+                    <div>Soft and versatile for everyday use.</div>
+                </div>
+            </div>
+            <div class="story">
+                <img src="./Image/Silk Innovations.jpg" alt="Silk Yarn">
+                <div class="story-caption">
+                    <strong>Silk Innovations</strong>
+                    <div>Luxury yarns for premium products.</div>
+                </div>
+            </div>
+            <div class="story">
+                <img src="./Image/Wool Essentials.jpg" alt="Wool Fabric">
+                <div class="story-caption">
+                    <strong>Wool Essentials</strong>
+                    <div>Warm and sustainable wool options.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials fade-in">
+        <h2>Client Testimonials</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial">
+                <p>"Faraz Textile Marketing provided exceptional quality and timely delivery. Highly recommended!"</p>
+                <cite>- Fashion Brand Inc.</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Their sustainable practices align perfectly with our eco-goals. A trusted partner."</p>
+                <cite>- Home Decor Co.</cite>
+            </div>
+            <div class="testimonial">
+                <p>"Innovative yarns that exceeded our expectations for industrial applications."</p>
+                <cite>- Manufacturing Ltd.</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section">
+        <div class="cta fade-in">
+            <div>
+                <h2>Why Choose We?</h2>
+                <p>We don’t just deliver textiles, we deliver trust, consistency, and results you can rely on. Every order, every fabric, every detail is crafted to exceed your expectations, so you always feel confident choosing us as your long-term partner.</p>
+            </div>
+            <div style="display:flex; gap:20px;">
+              
+                <button class="ghost-btn" style="margin-left: 400px; "><a href="Conatct.html">Contact Us</a></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            <strong class="legit">Faraz Textile Marketing</strong>
+            <p id="fegit">Leading the way in textile excellence.</p>
+        </div>
+        <div>
+            <div class="quick-links">
+    <strong class="legit">Quick Links</strong>
+    <ul>
+         <li><a href="Yarn.html">Yarn</a></li>
+         <li><a href="Fiber.html">Fiber</a></li>
+                    <li><a href="Fabric.html">Fabric</a></li>
+                    <li><a href="Towels.html">Towels</a></li>
+                    <li><a href="Bathrobes.html">Bathrobes</a></li>
+                    <li><a href="Bed linen.html">Bed linen</a></li>
+                    <li><a href="Knitted Garments.html">Knitted Garments</a></li>
+                    <li><a href="Woven Garments.html">Woven Garments</a></li>
+
+    </ul>
+</div>
+
+        </div>
+        <div>
+            <strong class="legit">Contact</strong>
+            <p id="fegit">Email: faraztextile12@gmail.com</p>
+            <p id="fegit">Phone:  0092-312-1074149</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for nav links (if needed)
+        document.querySelectorAll('nav ul li').forEach(item => {
+            item.addEventListener('click', () => {
+                // Add scroll logic here if sections have IDs
+            });
+        });
+
+        // Fade-in animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

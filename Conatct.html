@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./Image/Cotton.png" type="image/x-icon">
+  <title>Advanced Modern Form</title>
+  <style>
+    :root {
+      --primary: #003366;
+      --secondary: #005580;
+      --accent: #66c2ff;
+      --text: #ffffff;
+      --glass: rgba(255,255,255,0.10);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      height: auto; /* Changed from 100vh to auto for better scrolling with footer */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh; /* Ensures full height but allows scrolling */
+    }
+
+    /* ============ NAVBAR ============ */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    /* Logo container */
+    nav .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Logo circle */
+    nav .logo-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #003366, #005580);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid transparent;
+      transition: border 0.3s ease;
+    }
+
+    /* Hover effect on circle */
+    nav .logo-circle:hover {
+      border: 2px solid black;
+    }
+
+    /* Logo text inside circle */
+    nav .logo-circle a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+    nav ul li {
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.3s ease;
+      font-size: larger;
+      font-weight: bold;
+    }
+    nav ul li:hover {
+      color: #003366;
+      transform: translateY(-2px);
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #000;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #003366;
+    }
+    .nav-btn {
+      padding: 12px 25px;
+      background: #003366;
+      color: #fff;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .nav-btn:hover {
+      background: #005580;
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(0, 51, 102, 0.3);
+    }
+
+    /* ===== DROPDOWN ===== */
+    .dropdown:hover .dropdown-menu { display:block; }
+    .dropdown-menu { display:none; position:absolute; top:35px; left:0; background:#fff; border-radius:6px; box-shadow:0px 6px 20px rgba(0,0,0,0.15); min-width:160px; }
+    .dropdown-menu li a { display:block; padding:10px 15px; color:#000; text-decoration:none; font-size: large;font-weight: 600; }
+    .dropdown-menu li:hover { background:#003366; }
+    .dropdown-menu li:hover a { color:#fff; font-weight:bold; }
+
+    .form-container {
+      width: 420px;
+      padding: 30px;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      animation: fadeIn 0.8s ease;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--text);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .input-group input,
+    .input-group select,
+    .input-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      outline: none;
+      resize: vertical;
+      min-height: 40px; /* Adjusted for inputs */
+    }
+
+    .input-group textarea {
+      min-height: 80px;
+      max-height: 200px;
+    }
+
+    .input-group input:focus,
+    .input-group select:focus,
+    .input-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(102,194,255,0.5);
+    }
+
+    label {
+      color: #ddd;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      display: block;
+      font-weight: 500;
+      transition: color 0.3s ease; /* Added transition for smooth hover */
+    }
+
+    label:hover {
+      color: black; /* Black color on hover */
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(102,194,255,0.5);
+    }
+
+   
+    /* ============ FOOTER ============ */
+    footer {
+      margin-top: 70px;
+      border-top: 1px solid #ddd;
+      padding: 50px 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      background: rgb(58, 56, 56);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    footer p {
+      color: #555;
+      font-size: 14px;
+    }
+    footer ul {
+      list-style: none;
+      margin-top: 10px;
+    }
+    footer ul li {
+      color: white;
+      margin: 6px 0;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    footer ul li:hover {
+      color: #0b5eb1;
+    }
+    .legit {
+      color: black;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: larger;
+    }
+    #fegit {
+      color: white;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .quick-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .quick-links ul li a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+    .quick-links ul li a:hover {
+      color: #0b5eb1;
+    }
+
+    /* ===================== RESPONSIVE DESIGN ===================== */
+
+    /* XXL Screens (1600px+) */
+    @media (min-width: 1600px) {
+      nav { padding: 25px 7%; }
+      .form-container { width: 430px; }
+    }
+
+    /* Large Laptops / Desktops (max-width: 1200px) */
+    @media (max-width: 1200px) {
+      nav { padding: 18px 4%; }
+      .form-container { width: 60%; }
+    }
+
+    /* Tablets (max-width: 992px) */
+    @media (max-width: 992px) {
+      .form-container {
+        width: 75%;
+        padding: 28px;
+      }
+      nav ul { gap: 18px; }
+      h2 { font-size: 1.55rem; }
+    }
+
+    /* Large Phones (max-width: 768px) */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+        height: auto;
+        align-items: flex-start;
+      }
+
+      nav {
+        padding: 13px 4%;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .logo-circle {
+        width: 42px;
+        height: 42px;
+      }
+
+      .form-container {
+        width: 92%;
+        margin-top: 35px;
+      }
+
+      h2 {
+        font-size: 1.45rem;
+      }
+    }
+
+    /* Small Phones (max-width: 576px) */
+    @media (max-width: 576px) {
+      .form-container {
+        width: 100%;
+        padding: 22px;
+        border-radius: 15px;
+      }
+
+      h2 {
+        font-size: 1.32rem;
+      }
+
+      .input-group input,
+      .input-group textarea {
+        padding: 10px 11px;
+        font-size: 0.86rem;
+      }
+
+      .btn-submit {
+        padding: 11px;
+        font-size: 0.9rem;
+      }
+
+      footer {
+        text-align: center;
+      }
+
+      .quick-links,
+      .quick-links ul {
+        align-items: center;
+      }
+    }
+
+    /* Very Small Phones (max-width: 430px) */
+    @media (max-width: 430px) {
+      h2 { font-size: 1.28rem; }
+      nav strong { font-size: large; }
+      nav small { font-size: 12px; }
+    }
+
+    /* Extra Small Phones (max-width: 380px) */
+    @media (max-width: 380px) {
+      h2 {
+        font-size: 1.22rem;
+      }
+
+      .input-group label {
+        font-size: 0.8rem;
+      }
+
+      .input-group input,
+      .input-group textarea {
+        font-size: 0.78rem;
+        padding: 9px;
+      }
+
+      .btn-submit {
+        padding: 10px;
+        font-size: 0.83rem;
+      }
+    }
+  </style>
+</head>
+<body>
+    
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">
+      <div class="logo-circle"><a href="index.html">FTM</a></div>
+      <div>
+        <strong style="font-size: x-large;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Faraz Textile Marketing</strong><br>
+        <small style="color:#666;">Premium Textiles & Yarns</small>
+      </div>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="About Us.html">About Us</a></li>
+      <li class="dropdown">
+        <a href="Products.html">Products ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="Yarn.html">Yarn</a></li>
+          <li><a href="Fiber.html">Fiber</a></li>
+          <li><a href="Fabric.html">Fabric</a></li>
+          <li><a href="Towels.html">Towels</a></li>
+          <li><a href="Bathrobes.html">Bathrobes</a></li>
+          <li><a href="Bed linen.html">Bed linen</a></li>
+          <li><a href="Knitted Garments.html">Knitted Garments</a></li>
+          <li><a href="Woven Garments.html">Woven Garments</a></li>
+        </ul>
+      </li>
+      <li><a href="Conatct.html">Contact</a></li>
+    </ul>
+    <div class="nav-btn"><a href="Get Quote.html" style="color: white; text-decoration: none;">Get Quote</a></div>
+  </nav>
+
+  <div class="form-container">
+    <h2>Professional Information Form</h2>
+
+    <div class="input-group">
+      <label class="floating">Full Name</label>
+      <input type="text" placeholder="Enter your full name" />
+    </div>
+
+    <div class="input-group">
+      <label class="floating">Email Address</label>
+      <input type="email" placeholder="Enter your email" />
+    </div>
+
+    <div class="input-group">
+      <label class="floating">Phone Number</label>
+      <input type="text" placeholder="03XX-XXXXXXX" />
+    </div>
+
+    <div class="input-group">
+      <label class="floating">Your Message</label>
+      <textarea rows="4" placeholder="Write your message..."></textarea>
+    </div>
+
+    <button class="btn-submit">Submit Form</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <strong class="legit">Faraz Textile Marketing</strong>
+      <p id="fegit">Leading the way in textile excellence.</p>
+    </div>
+    <div>
+      <div class="quick-links">
+        <strong class="legit">Quick Links</strong>
+        <ul>
+          <li><a href="Yarn.html">Yarn</a></li>
+          <li><a href="Fiber.html">Fiber</a></li>
+          <li><a href="Fabric.html">Fabric</a></li>
+          <li><a href="Towels.html">Towels</a></li>
+          <li><a href="Bathrobes.html">Bathrobes</a></li>
+          <li><a href="Bed linen.html">Bed linen</a></li>
+          <li><a href="Knitted Garments.html">Knitted Garments</a></li>
+          <li><a href="Woven Garments.html">Woven Garments</a></li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <strong class="legit">Contact</strong>
+      <p id="fegit">Email: faraztextile12@gmail.com</p>
+      <p id="fegit">Phone: 0092-312-1074149</p>
+    </div>
+  </footer>
+
+  <script>
+    // Select the form and inputs
+    const form = document.querySelector('.form-container');
+    const nameInput = form.querySelector('input[type="text"]');
+    const emailInput = form.querySelector('input[type="email"]');
+    const phoneInput = form.querySelectorAll('input[type="text"]')[1]; // second text input
+    const messageInput = form.querySelector('textarea');
+
+    form.querySelector('.btn-submit').addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Name validation: letters and spaces only
+      const name = nameInput.value.trim();
+      if(!/^[a-zA-Z\s]+$/.test(name)) {
+        alert('Please enter a valid name (letters only).');
+        nameInput.focus();
+        return;
+      }
+
+      // Email validation: basic
+      const email = emailInput.value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        emailInput.focus();
+        return;
+      }
+
+      // Phone validation: allow numbers, +, -, spaces (any region)
+      const phone = phoneInput.value.trim();
+      if(!/^[\d\s\+\-\(\)]+$/.test(phone) || phone.length < 7) {
+        alert('Please enter a valid phone number.');
+        phoneInput.focus();
+        return;
+      }
+
+      // Message validation: not empty
+      const message = messageInput.value.trim();
+      if(message.length === 0) {
+        alert('Please enter your message.');
+        messageInput.focus();
+        return;
+      }
+
+      // If all validations pass
+      alert('Form submitted successfully!');
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
+

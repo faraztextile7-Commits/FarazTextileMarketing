@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="./Image/Cotton.png" type="image/x-icon">
+<title>Faraz Textile Marketing</title>
+<style>
+:root {
+  --ftm-dark: #03224c;
+  --ftm-mid: #0b3a78;
+  --ftm-light: #eaf2ff;
+  --ftm-accent: #4fa3ff;
+  --ftm-white: #ffffff;
+  --radius: 14px;
+  --transition: 0.25s ease;
+}
+body { font-family: 'Segoe UI', sans-serif; background: var(--ftm-light); margin:0; padding:50px;}
+button { font-family: inherit; cursor:pointer;}
+
+
+.open-quote-btn:hover { background: var(--ftm-mid); transform: translateY(-2px);}
+.open-quote-btn:active { transform: scale(0.97); }
+
+/* ===== Modal Overlay ===== */
+.quote-overlay {
+  position: fixed; inset:0;
+  backdrop-filter: blur(6px); background: rgba(0,0,0,0.45);
+  display: none; justify-content:center; align-items:center; padding:20px; z-index:1000;
+  animation: fadeIn 0.3s ease forwards;
+}
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+/* ===== Modal Box ===== */
+.quote-modal {
+  width: 100%; max-width: 900px;
+  background: var(--ftm-white); border-radius: var(--radius);
+  box-shadow:0 25px 70px rgba(0,0,0,0.3);
+  overflow:hidden; transform: translateY(20px); animation: slideUp 0.35s ease forwards;
+}
+@keyframes slideUp { from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+
+/* ===== Header ===== */
+.quote-header {
+  padding: 22px 26px;
+  background: linear-gradient(135deg, var(--ftm-dark), var(--ftm-mid));
+  color: var(--ftm-white); display:flex; justify-content:space-between; align-items:center;
+}
+.quote-header h2 { margin:0; font-size:22px; font-weight:600;}
+.close-btn { background:transparent; border:none; color:var(--ftm-white); font-size:26px; cursor:pointer; transition: var(--transition);}
+.close-btn:hover { transform: rotate(90deg); }
+
+/* ===== Form Ki Body ka kam ===== */
+.quote-body { padding:56px; display:grid; gap:24px; background:var(--ftm-white);}
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:50px; } /* increased gap for spacing */
+.form-row.single { grid-template-columns:1fr;}
+label { font-size:14px; font-weight:600; color:var(--ftm-dark); margin-bottom:6px; display:block;}
+input, select, textarea {
+  width:100%; padding:14px 16px; border:2px solid #d7e3ff; border-radius:var(--radius); font-size:14px; transition: var(--transition);
+}
+input:focus, select:focus, textarea:focus { border-color: var(--ftm-accent); box-shadow:0 0 0 3px rgba(79,163,255,0.25);}
+textarea { resize: vertical; min-height:120px;}
+
+/* ===== Footer ===== */
+.quote-footer { padding:20px 26px; display:flex; justify-content:flex-end; gap:16px; background: var(--ftm-light);}
+.btn { padding:14px 24px; border-radius:var(--radius); border:none; cursor:pointer; font-size:15px; font-weight:600; transition: var(--transition);}
+.btn-cancel { background:transparent; color: var(--ftm-dark); border:2px solid var(--ftm-dark);}
+.btn-cancel:hover { background: var(--ftm-dark); color: var(--ftm-white);}
+.btn-send { background: var(--ftm-dark); color: var(--ftm-white);}
+.btn-send:hover { background: var(--ftm-mid); transform:translateY(-2px);}
+.btn-send:active { transform: scale(0.97); }
+
+/* ===== Responsive ===== */
+@media(max-width:900px){ .quote-modal{width:95%;} }
+@media(max-width:680px){ .form-row{ grid-template-columns:1fr; gap:16px; } }
+
+/* ================= RESPONSIVE MEDIA QUERIES FOR QUOTE MODAL ================= */
+
+/* Large screens (1200px and above) */
+@media (min-width:1200px) {
+  .quote-modal { max-width: 900px; }
+  .form-row { gap: 50px; grid-template-columns: 1fr 1fr; }
+  .quote-body { gap: 24px; }
+}
+
+/* Laptops / Desktops (900px – 1199px) */
+@media (max-width:1199px) {
+  .quote-modal { max-width: 85%; }
+  .form-row { gap: 40px; grid-template-columns: 1fr 1fr; }
+  .quote-body { gap: 20px; }
+}
+
+/* Tablets (680px – 899px) */
+@media (max-width:899px) {
+  .quote-modal { width: 95%; }
+  .form-row { grid-template-columns: 1fr; gap: 20px; }
+  .quote-body { padding: 20px; gap: 18px; }
+  .quote-header h2 { font-size: 20px; }
+  .open-quote-btn { font-size: 15px; padding: 12px 24px; }
+}
+
+/* Mobile Landscape (480px – 679px) */
+@media (max-width:679px) {
+  body { padding: 30px 15px; }
+  .quote-modal { width: 95%; padding: 10px; }
+  .quote-header h2 { font-size: 18px; }
+  .form-row { gap: 16px; }
+  input, select, textarea { padding: 12px 14px; font-size: 13px; }
+  .btn { font-size: 14px; padding: 12px 20px; }
+}
+
+/* Small Mobile (320px – 479px) */
+@media (max-width:479px) {
+  body { padding: 20px 10px; }
+  .quote-modal { width: 100%; margin: 0 5px; }
+  .quote-header h2 { font-size: 16px; }
+  .close-btn { font-size: 22px; }
+  input, select, textarea { font-size: 12px; padding: 10px 12px; }
+  .btn { font-size: 13px; padding: 10px 16px; }
+  .quote-footer { flex-direction: column; gap: 10px; justify-content: center; }
+  .form-row { gap: 12px; }
+}
+
+</style>
+</head>
+<body>
+
+
+ <center> <div class="quote-modal">
+    <div class="quote-header">
+      <h2>Request a Quote</h2>
+      <button class="close-btn" id="closeModal">×</button>
+    </div>
+
+    <form class="quote-body" id="quoteForm">
+
+      <div class="form-row">
+        <div>
+          <label>Full Name *</label>
+          <input type="text" id="q_name" required placeholder="Enter your name" />
+        </div>
+        <div>
+          <label>Email *</label>
+          <input type="email" id="q_email" required placeholder="Enter your email" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>Phone</label>
+          <input type="text" id="q_phone" placeholder="+92 3xx xxx xxxx" />
+        </div>
+        <div>
+          <label>Product Type</label>
+          <select id="q_product">
+            <option>Yarn</option>
+            <option>Fiber</option>
+            <option>Fabric</option>
+            <option>Towels</option>
+            <option>Bathrobes</option>
+            <option>Bathrobes</option>
+            <option>Knitted Garments</option>
+            <option>Woven Garments</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>Quantity</label>
+          <input type="text" id="q_qty" placeholder="e.g. 100 kg / 100 pices" />
+        </div>
+        <div>
+          <label>Quality / GSM / Count</label>
+          <input type="text" id="q_quality" placeholder="e.g. Ne 30/1" />
+        </div>
+      </div>
+
+      <div class="form-row single">
+        <div>
+          <label>Additional Notes</label>
+          <textarea id="q_notes" placeholder="Any special requirements..."></textarea>
+        </div>
+      </div>
+
+      <div class="quote-footer">
+        <button type="button" class="btn btn-cancel" id="cancelBtn">Cancel</button>
+        <button type="submit" class="btn btn-send">Send Request</button>
+      </div>
+    </form>
+  </div>
+</div></center>
+
+<script>
+const COMPANY_EMAIL = 'faraztextile12@gmail.com';
+const COMPANY_WHATSAPP = '+923121074149';
+
+const overlay = document.getElementById('quoteOverlay');
+const openBtn = document.getElementById('openQuote');
+const closeBtn = document.getElementById('closeModal');
+const cancelBtn = document.getElementById('cancelBtn');
+
+// Open modal
+openBtn.addEventListener('click', ()=> overlay.style.display='flex');
+// Close modal
+closeBtn.addEventListener('click', ()=> overlay.style.display='none');
+cancelBtn.addEventListener('click', ()=> overlay.style.display='none');
+// Click outside to close
+overlay.addEventListener('click', e=>{ if(e.target===overlay) overlay.style.display='none'; });
+
+// Form submit
+document.getElementById('quoteForm').addEventListener('submit', function(ev){
+  ev.preventDefault();
+  const vals = {
+    name: document.getElementById('q_name').value.trim(),
+    email: document.getElementById('q_email').value.trim(),
+    phone: document.getElementById('q_phone').value.trim(),
+    product: document.getElementById('q_product').value.trim(),
+    quantity: document.getElementById('q_qty').value.trim(),
+    quality: document.getElementById('q_quality').value.trim(),
+    notes: document.getElementById('q_notes').value.trim()
+  };
+  if(!vals.name || !vals.email){ alert('Please enter your name and email.'); return; }
+  
+  const subject = encodeURIComponent('Quote Request — ' + vals.name);
+  const bodyLines = [
+    `Name: ${vals.name}`,
+    `Email: ${vals.email}`,
+    `Phone: ${vals.phone}`,
+    `Product: ${vals.product}`,
+    `Quantity: ${vals.quantity}`,
+    `Quality/GSM: ${vals.quality}`,
+    `Notes: ${vals.notes}`,
+    '',
+    `Preferred contact (company WhatsApp): ${COMPANY_WHATSAPP}`,
+    `Form submitted from: ${location.href}`
+  ];
+  const body = encodeURIComponent(bodyLines.join('\n'));
+  window.location.href = `mailto:${COMPANY_EMAIL}?subject=${subject}&body=${body}`;
+  overlay.style.display='none';
+});
+
+// Ya kam validation kay liay hai
+
+
+</script>
+<script>
+  // ===== STRONG VALIDATION FUNCTION =====
+function validateQuoteForm(vals) {
+
+    // Full Name (Only letters & spaces, min 3 letters)
+    const namePattern = /^[A-Za-z ]{3,}$/;
+    if (!namePattern.test(vals.name)) {
+        alert("Please enter a valid Full Name (letters only, minimum 3 characters).");
+        return false;
+    }
+
+    // Email Validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(vals.email)) {
+        alert("Please enter a valid Email Address.");
+        return false;
+    }
+
+    // Phone (Pakistani Format: +92 3XX XXXXXXX)
+    const phonePattern = /^\+92[ ]?3\d{2}[ ]?\d{7}$/;
+    if (vals.phone && !phonePattern.test(vals.phone)) {
+        alert("Please enter a valid Pakistani phone number (e.g. +92 300 1234567).");
+        return false;
+    }
+
+    // Product Type
+    if (!vals.product || vals.product.trim() === "") {
+        alert("Please select a Product Type.");
+        return false;
+    }
+
+    // Additional Notes (min 10 characters)
+    if (vals.notes.length < 10) {
+        alert("Additional Notes must be at least 10 characters long.");
+        return false;
+    }
+
+    return true;
+}
+
+
+
+// ===== APPLY VALIDATION ON SUBMIT =====
+document.getElementById("quoteForm").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+
+    const vals = {
+        name: document.getElementById('q_name').value.trim(),
+        email: document.getElementById('q_email').value.trim(),
+        phone: document.getElementById('q_phone').value.trim(),
+        product: document.getElementById('q_product').value.trim(),
+        quantity: document.getElementById('q_qty').value.trim(),
+        quality: document.getElementById('q_quality').value.trim(),
+        notes: document.getElementById('q_notes').value.trim()
+    };
+
+    // RUN VALIDATION
+    if (!validateQuoteForm(vals)) return;
+
+    // If validated → send email
+    const subject = encodeURIComponent('Quote Request — ' + vals.name);
+    const bodyLines = [
+        `Name: ${vals.name}`,
+        `Email: ${vals.email}`,
+        `Phone: ${vals.phone}`,
+        `Product: ${vals.product}`,
+        `Quantity: ${vals.quantity}`,
+        `Quality/GSM: ${vals.quality}`,
+        `Notes: ${vals.notes}`,
+        '',
+        `Preferred contact (company WhatsApp): ${COMPANY_WHATSAPP}`,
+        `Form submitted from: ${location.href}`
+    ];
+    const body = encodeURIComponent(bodyLines.join('\n'));
+
+    window.location.href = `mailto:${COMPANY_EMAIL}?subject=${subject}&body=${body}`;
+    overlay.style.display = 'none';
+});
+
+</script>
+
+</body>
+</html>
