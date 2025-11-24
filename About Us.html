@@ -115,13 +115,60 @@ nav .logo-circle:hover {
         }
 
         /* Yaha say Drop down ka Kam hai  */
+  /* ===== DROPDOWN (CLICK ONLY) ===== */
+     .dropdown-menu {
+    display: none !important;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
+    min-width: 160px;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
 
-  /* ===== DROPDOWN ===== */
-        .dropdown:hover .dropdown-menu { display:block; }
-        .dropdown-menu { display:none; position:absolute; top:35px; left:0; background:#fff; border-radius:6px; box-shadow:0px 6px 20px rgba(0,0,0,0.15); min-width:160px; }
-        .dropdown-menu li a { display:block; padding:10px 15px; color:#000; text-decoration:none; font-size: large;font-weight: 600; }
-        .dropdown-menu li:hover { background:#003366; }
-        .dropdown-menu li:hover a { color:#fff; font-weight:bold; }
+        
+
+    
+.dropdown-menu.open {
+    display: block !important;
+}
+
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 10px 15px;
+            color: #000;
+            text-decoration: none;
+            font-size: large;
+            font-weight: 600;
+        }
+
+        .dropdown-menu li:hover {
+            background: #003366;
+        }
+
+        .dropdown-menu li:hover a {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* ya say hai */
+        .dropdown {
+    position: relative;
+}
+
+/* Visible only on click */
+.dropdown-menu.open {
+    display: block !important;
+    opacity: 1;
+    visibility: visible;
+}
+
 
         /* Yaha say Services ka kam hai */
         :root{
@@ -263,7 +310,7 @@ footer{margin-top:40px;padding-top:18px;border-top:1px dashed #e8eaf3;color:var(
             }
         }
 
-        /* ====================================================================== */
+        
 /* =======================   HIGHLY RESPONSIVE UI   ====================== */
 /* ====================================================================== */
 
@@ -764,6 +811,36 @@ footer{margin-top:40px;padding-top:18px;border-top:1px dashed #e8eaf3;color:var(
     </footer>
     
 <script>
+   // --- PRODUCT DROPDOWN TOGGLE SYSTEM ---
+const productDropdown = document.querySelector(".dropdown");
+const productMenu = document.querySelector(".dropdown-menu");
+
+// Toggle on click
+productDropdown.addEventListener("click", function (e) {
+    e.stopPropagation(); // Stop bubbling
+    const isOpen = productMenu.classList.contains("open");
+
+    // Close all dropdowns before opening again
+    closeAllDropdowns();
+
+    // Toggle only if it wasn't open
+    if (!isOpen) {
+        productMenu.classList.add("open");
+        productMenu.style.display = "block";
+    }
+});
+
+// Close dropdown when clicking anywhere outside
+document.addEventListener("click", function () {
+    closeAllDropdowns();
+});
+
+// Function to close everything
+function closeAllDropdowns() {
+    productMenu.classList.remove("open");
+    productMenu.style.display = "none";
+}
+
     window.addEventListener('DOMContentLoaded',()=>{document.getElementById('banner').classList.add('show');});
   </script>
 
