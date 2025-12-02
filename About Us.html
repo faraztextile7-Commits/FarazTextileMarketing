@@ -900,6 +900,29 @@ function closeAllDropdowns() {
 
 
     window.addEventListener('DOMContentLoaded',()=>{document.getElementById('banner').classList.add('show');});
+
+    // Ya HamBurger ka kam hai
+
+// Hamburger toggle
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector("nav ul");
+
+hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
+    hamburger.classList.toggle("active"); // animate hamburger
+    navMenu.classList.toggle("show");     // toggle mobile menu
+});
+
+// Close menu when clicking outside
+document.addEventListener("click", () => {
+    navMenu.classList.remove("show");
+    hamburger.classList.remove("active");
+});
+
+// Prevent closing when clicking inside nav
+navMenu.addEventListener("click", (e) => {
+    e.stopPropagation();
+});
   </script>
 
 
