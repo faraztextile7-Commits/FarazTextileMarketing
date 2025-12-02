@@ -521,9 +521,58 @@ footer{margin-top:40px;padding-top:18px;border-top:1px dashed #e8eaf3;color:var(
   }
 }
 
+/* Ya sari Hamburger ki Css Hai */
 
+/* Hamburger styling */
+.hamburger {
+    display: none; /* hidden on desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px;
+}
 
-        
+.hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #003366;
+    transition: all 0.3s ease;
+}
+
+/* Active state animation */
+.hamburger.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 20px 5%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    nav ul.show {
+        display: flex;
+    }
+}
 
     </style>
 </head>
@@ -561,6 +610,14 @@ footer{margin-top:40px;padding-top:18px;border-top:1px dashed #e8eaf3;color:var(
 </ul>
 
         <div class="nav-btn"><a href="Get Quote.html" style="color: white; text-decoration: none;">Get Quote</a></div>
+
+        <!-- hamburger -->
+<div class="hamburger">
+
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
     </nav>
 
     <!-- Ya Services Ka kam hai -->
@@ -840,6 +897,7 @@ function closeAllDropdowns() {
     productMenu.classList.remove("open");
     productMenu.style.display = "none";
 }
+
 
     window.addEventListener('DOMContentLoaded',()=>{document.getElementById('banner').classList.add('show');});
   </script>
